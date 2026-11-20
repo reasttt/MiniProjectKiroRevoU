@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div class="app-wrapper">
+
+    <!-- ── Top Bar ──────────────────────────────────────────── -->
+    <div class="top-bar">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="icon">🌙</span> Dark Mode
+      </button>
+    </div>
+
+    <div class="grid">
+
+      <!-- ── Greeting ──────────────────────────────────────── -->
+      <section class="card greeting-card" aria-label="Greeting">
+        <p class="card-title">Dashboard</p>
+        <div id="greetTime"  class="greeting-time">--:--:-- --</div>
+        <div id="greetDate"  class="greeting-date">Loading…</div>
+        <div id="greetMsg"   class="greeting-message">Hello!</div>
+        <div class="greeting-name-row">
+          <input id="nameInput" type="text" placeholder="Enter your name…" maxlength="40" aria-label="Your name" />
+          <button id="saveName" class="btn-sm">Save</button>
+        </div>
+      </section>
+
+      <!-- ── Focus Timer ───────────────────────────────────── -->
+      <section class="card" aria-label="Focus Timer">
+        <p class="card-title">⏱ Focus Timer</p>
+        <div class="timer-progress" aria-hidden="true">
+          <div id="timerProgressBar" class="timer-progress-bar" style="width:0%"></div>
+        </div>
+        <div id="timerDisplay" class="timer-display" aria-live="polite">25:00</div>
+        <div id="timerLabel"   class="timer-label">25-minute focus session</div>
+        <div class="timer-controls">
+          <button id="timerStart" class="btn-timer btn-start">▶ Start</button>
+          <button id="timerStop"  class="btn-timer btn-stop" >⏸ Pause</button>
+          <button id="timerReset" class="btn-timer btn-reset">↺ Reset</button>
+        </div>
+        <div class="timer-custom-row">
+          <label for="timerMinutes">Custom duration:</label>
+          <input id="timerMinutes" type="number" min="1" max="120" value="25" aria-label="Timer minutes" />
+          <span>min</span>
+        </div>
+      </section>
+
+      <!-- ── To-Do List ────────────────────────────────────── -->
+      <section class="card" aria-label="To-Do List">
+        <p class="card-title">✅ To-Do List</p>
+        <div class="todo-input-row">
+          <input id="todoInput" type="text" placeholder="Add a new task…" maxlength="120" aria-label="New task" />
+          <button id="todoAdd" class="btn-sm">Add</button>
+        </div>
+        <p id="dupWarning" class="duplicate-warning" role="alert">⚠️ This task already exists!</p>
+        <div class="todo-actions-bar">
+          <span id="todoCount" class="todo-count">0/0 done</span>
+          <select id="todoSort" class="todo-sort-select" aria-label="Sort tasks">
+            <option value="newest">Newest first</option>
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+            <option value="done">Done last</option>
+            <option value="undone">Done first</option>
+          </select>
+        </div>
+        <ul id="todoList" class="todo-list" aria-label="Tasks"></ul>
+      </section>
+
+      <!-- ── Quick Links ───────────────────────────────────── -->
+      <section class="card" aria-label="Quick Links">
+        <p class="card-title">🔗 Quick Links</p>
+        <div class="links-input-section">
+          <div class="links-input-row">
+            <input id="linkName" type="text"  placeholder="Label (optional)" maxlength="30" aria-label="Link label" />
+            <input id="linkUrl"  type="url"   placeholder="https://example.com" aria-label="Link URL" />
+            <button id="linkAdd" class="btn-sm">Add</button>
+          </div>
+        </div>
+        <div id="linksGrid" class="links-grid"></div>
+      </section>
+
+    </div><!-- /grid -->
+  </div><!-- /app-wrapper -->
+
+  <script src="js/app.js"></script>
+</body>
+</html>
